@@ -13,10 +13,10 @@ Shrine.plugin :validation_helpers
 
 def s3_options
   {
-    access_key_id: ENV["S3_ACCESS_KEY_ID"],
-    secret_access_key: ENV["S3_SECRET_ACCESS_KEY"],
-    region: ENV["S3_BUCKET_REGION"],
-    bucket: ENV["S3_BUCKET_NAME"]
+    access_key_id: Rails.application.credentials.aws[:access_key_id],
+    secret_access_key: Rails.application.credentials.aws[:secret_access_key],
+    region: Rails.application.credentials.aws[:region],
+    bucket: Rails.application.credentials.aws[:bucket]
   }
 end
 

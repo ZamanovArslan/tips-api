@@ -21,3 +21,4 @@ Activity.create!(
   body: "New user registered with the next attributes: First Name - Darth, Last Name - Vader",
   event: :user_registered
 )
+
