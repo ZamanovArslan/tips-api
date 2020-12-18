@@ -13,4 +13,16 @@ class BaseFilteredQuery
   private
 
   attr_reader :relation, :filter_params
+
+  def prepare_query_to_ilike_search(query)
+    "%#{query}%"
+  end
+
+  def prepare_query_to_search(query)
+    [
+      "%(",
+      query.gsub(/[^[:ascii:]]/, " ").gsub(/([^\w\s])/, '^\1').split(" ").join("|").downcase,
+      ")%"
+    ].join
+  end
 end
